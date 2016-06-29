@@ -1,8 +1,8 @@
 package model.bouquet;
 
 /**
- * Created by Artem on 26.06.16.
+ * Enum of bouquet event available
  */
 public enum BouquetEventType {
-    ALL, FESTIVAL, FUNERAL, WEDDING;
+    ALL, FESTIVAL, FUNERAL, BRIDAL;
 }

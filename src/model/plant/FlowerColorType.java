@@ -1,7 +1,7 @@
 package model.plant;
 
 /**
- * Created by Artem on 26.06.16.
+ * Enum of flower color available
  */
 public enum FlowerColorType {
     SINGLE_COLOR,SEVERAL_COLORS;

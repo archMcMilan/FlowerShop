@@ -1,7 +1,7 @@
 package model.plant;
 
 /**
- * Created by Artem on 26.06.16.
+ * Enum of flower freshness available
  */
 public enum FreshnessType {
     VERY_FRESH(2),

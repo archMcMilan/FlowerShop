@@ -1,7 +1,7 @@
 package model.bouquet;
 
 /**
- * Created by Artem on 26.06.16.
+ * Enum of bouquet stems available
  */
 public enum BouquetStemType {
         NO_STEM(0.5),

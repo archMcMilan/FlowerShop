@@ -6,11 +6,11 @@ import model.bouquet.BouquetEventType;
 import model.bouquet.BouquetStemType;
 import model.plant.Flower;
 
-import java.util.List;
+import java.util.Map;
 import java.util.Set;
 
 /**
- * Created by Artem on 26.06.16.
+ * Class decide which Builder use for Bouquet creating
  */
 public class Director {
     private BouquetBuilder builder;
@@ -19,9 +19,17 @@ public class Director {
         this.builder=builder;
     }
 
-    public Bouquet createBouquet(List<Flower> flowers, Set<Accessory> accessories,BouquetStemType stem,BouquetEventType event){
+    /**
+     * Method which is a wrapper with parameters for Builder methods
+     * @param flowers
+     * @param accessories
+     * @param stem
+     * @param event
+     * @return created Bouquet
+     */
+    public Bouquet createBouquet(Map<Flower,Integer> flowers, Set<Accessory> accessories, BouquetStemType stem, BouquetEventType event){
         builder.createBouquet();
-        builder.buildBouquetFlowerList(flowers);
+        builder.buildBouquetFlowerMap(flowers);
         builder.buildBouquetAccessorySet(accessories);
         builder.buildBouquetStemType(stem);
         builder.buildBouquetEventType(event);
@@ -29,9 +37,13 @@ public class Director {
         return builder.getBouquet();
     }
 
+    /**
+     * Method which is a wrapper without parameters for Builder methods
+     * @return created Bouquet
+     */
     public Bouquet createBouquet(){
         builder.createBouquet();
-        builder.buildBouquetFlowerList();
+        builder.buildBouquetFlowerMap();
         builder.buildBouquetAccessorySet();
         builder.buildBouquetStemType();
 

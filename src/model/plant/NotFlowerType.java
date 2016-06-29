@@ -1,7 +1,7 @@
 package model.plant;
 
 /**
- * Created by Artem on 26.06.16.
+ * Enum of not a flower types available
  */
 public enum NotFlowerType {
     BRANCH, BUSH;

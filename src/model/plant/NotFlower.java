@@ -1,7 +1,7 @@
 package model.plant;
 
 /**
- * Created by Artem on 26.06.16.
+ * Class that extends Plant and contains special parameters for not a Flower
  */
 public class NotFlower extends Plant {
     private NotFlowerType type;

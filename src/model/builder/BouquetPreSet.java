@@ -7,11 +7,11 @@ import model.bouquet.BouquetSizeType;
 import model.bouquet.BouquetStemType;
 import model.plant.Flower;
 
-import java.util.List;
+import java.util.Map;
 import java.util.Set;
 
 /**
- * Created by Artem on 26.06.16.
+ * Class contains four classes that implements BouquetBuilder and set "preset" parameters
  */
 public class BouquetPreSet {
     public static class Cheap extends BouquetBuilder {
@@ -22,10 +22,8 @@ public class BouquetPreSet {
         }
 
         @Override
-        public void buildBouquetFlowerList() {
-            for(int i=0;i<BouquetSizeType.SMALL.getFlowerAmount();i++){
-                bouquet.getFlowers().add(InitializerFlower.CAMANOLI.getFlower());
-            }
+        public void buildBouquetFlowerMap() {
+            bouquet.getFlowers().put(InitializerFlower.СHAMOMILE.getFlower(),BouquetSizeType.SMALL.getFlowerAmount());
         }
 
         @Override
@@ -39,8 +37,8 @@ public class BouquetPreSet {
         }
 
         @Override
-        public void buildBouquetFlowerList(List<Flower> flowers) {
-            buildBouquetFlowerList();
+        public void buildBouquetFlowerMap(Map<Flower, Integer> flowers) {
+            buildBouquetFlowerMap();
         }
 
         @Override
@@ -54,6 +52,7 @@ public class BouquetPreSet {
         }
     }
 
+
     public static class Budget extends BouquetBuilder{
 
         @Override
@@ -62,15 +61,13 @@ public class BouquetPreSet {
         }
 
         @Override
-        public void buildBouquetFlowerList() {
-            for(int i=0;i<BouquetSizeType.MIDDLE.getFlowerAmount();i++){
-                bouquet.getFlowers().add(InitializerFlower.NORMAL.getFlower());
-            }
+        public void buildBouquetFlowerMap() {
+            bouquet.getFlowers().put(InitializerFlower.TULIP.getFlower(),BouquetSizeType.MIDDLE.getFlowerAmount());
         }
 
         @Override
         public void buildBouquetAccessorySet() {
-            bouquet.getAccessories().add(Accessory.FLOWER_WRAP);
+            bouquet.getAccessories().add(Accessory.WRAPPER);
             bouquet.getAccessories().add(Accessory.RIBBON);
         }
 
@@ -80,10 +77,9 @@ public class BouquetPreSet {
         }
 
         @Override
-        public void buildBouquetFlowerList(List<Flower> flowers) {
-            buildBouquetFlowerList();
+        public void buildBouquetFlowerMap(Map<Flower, Integer> flowers) {
+            buildBouquetFlowerMap();
         }
-
         @Override
         public void buildBouquetAccessorySet(Set<Accessory> accessories) {
             buildBouquetAccessorySet();
@@ -103,17 +99,15 @@ public class BouquetPreSet {
         }
 
         @Override
-        public void buildBouquetFlowerList() {
-            for(int i=0;i<BouquetSizeType.BIG.getFlowerAmount();i++){
-                bouquet.getFlowers().add(InitializerFlower.BETTER.getFlower());
-            }
+        public void buildBouquetFlowerMap() {
+            bouquet.getFlowers().put(InitializerFlower.ORCHID.getFlower(),BouquetSizeType.BIG.getFlowerAmount());
         }
 
         @Override
         public void buildBouquetAccessorySet() {
-            bouquet.getAccessories().add(Accessory.FLOWER_WRAP);
+            bouquet.getAccessories().add(Accessory.WRAPPER);
             bouquet.getAccessories().add(Accessory.RIBBON);
-            bouquet.getAccessories().add(Accessory.FLOWER_BASE);
+            bouquet.getAccessories().add(Accessory.BASE);
         }
 
         @Override
@@ -122,10 +116,9 @@ public class BouquetPreSet {
         }
 
         @Override
-        public void buildBouquetFlowerList(List<Flower> flowers) {
-            buildBouquetFlowerList();
+        public void buildBouquetFlowerMap(Map<Flower, Integer> flowers) {
+            buildBouquetFlowerMap();
         }
-
         @Override
         public void buildBouquetAccessorySet(Set<Accessory> accessories) {
             buildBouquetAccessorySet();
@@ -145,17 +138,15 @@ public class BouquetPreSet {
         }
 
         @Override
-        public void buildBouquetFlowerList() {
-            for(int i=0;i<BouquetSizeType.VERY_BIG.getFlowerAmount();i++){
-                bouquet.getFlowers().add(InitializerFlower.BEST.getFlower());
-            }
+        public void buildBouquetFlowerMap() {
+            bouquet.getFlowers().put(InitializerFlower.ROSE.getFlower(),BouquetSizeType.VERY_BIG.getFlowerAmount());
         }
 
         @Override
         public void buildBouquetAccessorySet() {
-            bouquet.getAccessories().add(Accessory.FLOWER_WRAP);
+            bouquet.getAccessories().add(Accessory.WRAPPER);
             bouquet.getAccessories().add(Accessory.RIBBON);
-            bouquet.getAccessories().add(Accessory.FLOWER_BASE);
+            bouquet.getAccessories().add(Accessory.BASE);
             bouquet.getAccessories().add(Accessory.BASKET);
         }
 
@@ -165,10 +156,9 @@ public class BouquetPreSet {
         }
 
         @Override
-        public void buildBouquetFlowerList(List<Flower> flowers) {
-            buildBouquetFlowerList();
+        public void buildBouquetFlowerMap(Map<Flower, Integer> flowers) {
+            buildBouquetFlowerMap();
         }
-
         @Override
         public void buildBouquetAccessorySet(Set<Accessory> accessories) {
             buildBouquetAccessorySet();

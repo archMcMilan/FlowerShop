@@ -5,11 +5,11 @@ import model.bouquet.BouquetEventType;
 import model.bouquet.BouquetStemType;
 import model.plant.Flower;
 
-import java.util.List;
+import java.util.Map;
 import java.util.Set;
 
 /**
- * Created by Artem on 26.06.16.
+ * Class contains class that implements BouquetBuilder and set user parameters
  */
 public class BouquetCustom extends BouquetBuilder{
 
@@ -24,7 +24,7 @@ public class BouquetCustom extends BouquetBuilder{
     }
 
     @Override
-    public void buildBouquetFlowerList(List<Flower> flowers) {
+    public void buildBouquetFlowerMap(Map<Flower,Integer> flowers) {
         bouquet.setFlowers(flowers);
     }
 
@@ -39,7 +39,7 @@ public class BouquetCustom extends BouquetBuilder{
     }
 
     @Override
-    public void buildBouquetFlowerList() {
+    public void buildBouquetFlowerMap() {
 
     }
 

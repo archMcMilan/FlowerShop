@@ -1,7 +1,7 @@
 package model.bouquet;
 
 /**
- * Created by Artem on 26.06.16.
+ * Enum of bouquet size available.
  */
 public enum BouquetSizeType {
     SMALL(3), MIDDLE(7), BIG(21), VERY_BIG(101);

@@ -1,7 +1,7 @@
 package model.plant;
 
 /**
- * Created by Artem on 26.06.16.
+ * Class extends Plant and contains parameters special for Flower
  */
 public class Flower extends Plant {
     private FlowerColorType colorType;
@@ -20,4 +20,6 @@ public class Flower extends Plant {
     public FreshnessType getFreshness() {
         return freshness;
     }
+
+
 }

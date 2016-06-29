@@ -1,7 +1,7 @@
 package model.plant;
 
 /**
- * Created by Artem on 26.06.16.
+ * Class contains similar fields for Flower and NotFlower
  */
 public abstract class Plant {
     private String name;

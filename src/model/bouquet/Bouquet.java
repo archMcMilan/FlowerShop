@@ -2,47 +2,37 @@ package model.bouquet;
 
 import model.plant.Flower;
 
-import java.util.ArrayList;
-import java.util.LinkedHashSet;
-import java.util.List;
-import java.util.Set;
+import java.util.*;
 
 /**
- * Created by Artem on 26.06.16.
+ * Class contains parameters for that need to know for creating Bouquet
+ * Contain method that count price of this bouquet
  */
 public class Bouquet {
-    private List<Flower> flowers;
+    private Map<Flower, Integer> flowers;
     private Set<Accessory> accessories;
     private BouquetEventType event;
     private BouquetStemType stem;
 
     public Bouquet() {
-        flowers=new ArrayList<>();
-        accessories=new LinkedHashSet<>();
-        event=BouquetEventType.ALL;
+        flowers = new HashMap<>();
+        accessories = new LinkedHashSet<>();
+        event = BouquetEventType.ALL;
     }
 
-    public Bouquet(List<Flower> flowers, Set<Accessory> accessories, BouquetEventType event, BouquetStemType stem) {
-        this.flowers = flowers;
-        this.accessories = accessories;
-        this.event = event;
-        this.stem = stem;
-    }
-
-
-    public int countPrice(){
-        int sum=0;
-        for(Flower f:flowers){
-            sum+=f.getPrice()*f.getFreshness().getCoefficient();
+    public int countPrice() {
+        int sum = 0;
+        for (Map.Entry<Flower, Integer> entry : flowers.entrySet()) {
+            sum += entry.getKey().getPrice() * entry.getKey().getFreshness().getCoefficient() * entry.getValue();
         }
-        for(Accessory a:accessories){
-            sum+=a.getPrice();
+        for (Accessory a : accessories) {
+            sum += a.getPrice();
         }
-        sum*=stem.getCoefficient();
+        sum *= stem.getCoefficient();
         return sum;
     }
 
-    public void setFlowers(List<Flower> flowers) {
+    public void setFlowers(Map<Flower, Integer> flowers) {
         this.flowers = flowers;
     }
 
@@ -58,7 +48,7 @@ public class Bouquet {
         this.stem = stem;
     }
 
-    public List<Flower> getFlowers() {
+    public Map<Flower, Integer> getFlowers() {
         return flowers;
     }
 
@@ -74,5 +64,13 @@ public class Bouquet {
         return stem;
     }
 
-
+    @Override
+    public String toString() {
+        return "Bouquet{" +
+                "flowers=" + flowers +
+                ", accessories=" + accessories +
+                ", event=" + event +
+                ", stem=" + stem +
+                '}';
+    }
 }

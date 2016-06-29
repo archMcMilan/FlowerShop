@@ -8,8 +8,6 @@ import model.builder.BouquetCustom;
 import model.builder.BouquetPreSet;
 import model.builder.Director;
 import model.plant.Flower;
-import model.plant.FlowerColorType;
-import model.plant.FreshnessType;
 
 import java.util.*;
 
@@ -18,34 +16,27 @@ import java.util.*;
  */
 public class InitializerBouquet {
 
-    public void init(){
+    public List<Bouquet> init(){
         Director director=new Director();
         List<Bouquet> bouquets=new ArrayList<>();
         director.setBouquetBuilder(new BouquetPreSet.Cheap());
         bouquets.add(director.createBouquet());
         director.setBouquetBuilder(new BouquetPreSet.Expensive());
         bouquets.add(director.createBouquet());
-        director.setBouquetBuilder(new BouquetPreSet.VIP());
+        director.setBouquetBuilder(new BouquetPreSet.Budget());
         bouquets.add(director.createBouquet());
 
-        List<Flower> flowers=new ArrayList<>();
-        Flower rose=new Flower(this.getClass().getName(),200, FlowerColorType.SEVERAL_COLORS, FreshnessType.FRESH,
-                true, false);
-        flowers.add(rose);
-        flowers.add(rose);
-        flowers.add(rose);
-        Flower rose2=new Flower(this.getClass().getName(),300, FlowerColorType.SEVERAL_COLORS, FreshnessType.VERY_FRESH,
-                false, false);
-        flowers.add(rose2);
-        flowers.add(rose2);
-        flowers.add(rose);
+        Map<Flower,Integer> flowers=new HashMap<>();
+        flowers.put(InitializerFlower.ROSE.getFlower(),5);
+        flowers.put(InitializerFlower.HYDRANGEA.getFlower(),3);
 
         Set<Accessory> accessories=new HashSet<>();
         accessories.add(Accessory.BASKET);
         accessories.add(Accessory.RIBBON);
-        accessories.add(Accessory.FLOWER_BASE);
-        accessories.add(Accessory.FLOWER_WRAP);
+        accessories.add(Accessory.BASE);
+        accessories.add(Accessory.WRAPPER);
         director.setBouquetBuilder(new BouquetCustom());
-        bouquets.add(director.createBouquet(flowers,accessories, BouquetStemType.MEDIUM, BouquetEventType.WEDDING));
+        bouquets.add(director.createBouquet(flowers,accessories, BouquetStemType.MEDIUM, BouquetEventType.BRIDAL));
+        return bouquets;
     }
 }
